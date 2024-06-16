@@ -9,6 +9,10 @@ class Program
 {
     private static void Main(string[] args)
     {
+        Console.WriteLine("Thank you for using MergePdf");
+        Console.WriteLine("Copyright (C) Tony's Studio 2024");
+        Console.WriteLine();
+
         if (args.Length < 2 || (args[1] == "-r" && args.Length != 3))
         {
             Console.WriteLine("Usage:");
