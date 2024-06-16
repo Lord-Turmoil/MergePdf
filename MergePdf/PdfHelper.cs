@@ -9,17 +9,15 @@ static class PdfHelper
     {
         if (inputs.Length == 0)
         {
-            Console.WriteLine("No input files specified.");
-            return;
+            throw new Exception("No input files specified");
         }
 
         foreach (string input in inputs)
         {
-            Console.WriteLine($"Merging {input}");
+            Console.WriteLine($"Merging {input}...");
             if (!File.Exists(input))
             {
-                Console.WriteLine($"File not found: {input}");
-                return;
+                throw new Exception($"File {input} not found");
             }
         }
 
