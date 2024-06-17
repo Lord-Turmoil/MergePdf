@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MergePdf.Core", "MergePdf.C
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MergePdf.CLI", "MergePdf.CLI\MergePdf.CLI.csproj", "{475ABCBD-A040-446F-875B-325A9077D3B9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MergePdf.GUI", "MergePdf.GUI\MergePdf.GUI.csproj", "{4BA88CBE-93DA-4430-A536-367100E9AE28}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{475ABCBD-A040-446F-875B-325A9077D3B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{475ABCBD-A040-446F-875B-325A9077D3B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{475ABCBD-A040-446F-875B-325A9077D3B9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4BA88CBE-93DA-4430-A536-367100E9AE28}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4BA88CBE-93DA-4430-A536-367100E9AE28}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4BA88CBE-93DA-4430-A536-367100E9AE28}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4BA88CBE-93DA-4430-A536-367100E9AE28}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
