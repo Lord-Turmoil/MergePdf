@@ -1,0 +1,13 @@
+{
+  "profiles": {
+    "MergePdf": {
+      "commandName": "Project",
+      "workingDirectory": "$(ProjectDir)"
+    },
+    "Help": {
+      "commandName": "Project",
+      "commandLineArgs": "--help",
+      "workingDirectory": "$(ProjectDir)"
+    }
+  }
+}
