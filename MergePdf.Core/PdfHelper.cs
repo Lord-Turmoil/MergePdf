@@ -1,4 +1,6 @@
-﻿using PdfSharp.Drawing;
+﻿// Copyright (C) 2018 - 2024 Tony's Studio. All rights reserved.
+
+using PdfSharp.Drawing;
 using PdfSharp.Pdf;
 using PdfSharp.Pdf.IO;
 
