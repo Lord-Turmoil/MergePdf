@@ -1,6 +1,5 @@
-﻿// Reference:
-// https://stackoverflow.com/questions/8370209/how-to-scroll-to-the-bottom-of-a-scrollviewer-automatically-with-xaml-and-bindin
-//
+﻿// Copyright (C) 2018 - 2024 Tony's Studio. All rights reserved.
+
 using System.Windows;
 using System.Windows.Controls;
 

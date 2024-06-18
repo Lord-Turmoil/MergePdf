@@ -35,6 +35,7 @@ public class PageNumberOptions
         {
             Location = TopMiddle;
         }
+
         if (Location.Equals("bc", StringComparison.OrdinalIgnoreCase))
         {
             Location = BottomMiddle;

@@ -1,4 +1,6 @@
-﻿using System.Collections.ObjectModel;
+﻿// Copyright (C) 2018 - 2024 Tony's Studio. All rights reserved.
+
+using System.Collections.ObjectModel;
 using System.Diagnostics;
 using MergePdf.Core;
 using MergePdf.GUI.Extensions;
@@ -116,7 +118,7 @@ class MainViewModel : BindableBase
             Output += "Merge complete!\n";
             if (OpenOnComplete)
             {
-                var path = _containerProvider.Resolve<FilesViewModel>().Output.Path;
+                string path = _containerProvider.Resolve<FilesViewModel>().Output.Path;
                 Process.Start("explorer.exe", $"/select,\"{path}\"");
                 Output += $"Revealing {path} in explorer";
             }

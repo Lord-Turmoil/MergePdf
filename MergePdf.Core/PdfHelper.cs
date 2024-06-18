@@ -37,6 +37,7 @@ public class PdfHelper
         {
             throw new PdfMergeException("Output file not specified");
         }
+
         if (!_inputs.Any())
         {
             throw new PdfMergeException("No input files specified");
@@ -77,7 +78,6 @@ public class PdfHelper
                     }
                 }
             }
-
         }
 
         document.Save(_output);
