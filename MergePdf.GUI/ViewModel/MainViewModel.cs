@@ -16,6 +16,9 @@ class MainViewModel : BindableBase
     private ObservableCollection<MenuTab> _menuTabs;
     private string _output;
 
+    private readonly object _mutex = new();
+    private bool _isMerging;
+
     public MainViewModel(IContainerProvider containerProvider, IRegionManager regionManager)
     {
         _containerProvider = containerProvider;
@@ -61,12 +64,23 @@ class MainViewModel : BindableBase
         {
             _regionManager.Regions[PrismManager.MainViewRegionName].RequestNavigate(tab.NameSpace);
 
-            Output += $"Navigated to {tab.Title}\n";
+            // Output += $"Navigated to {tab.Title}\n";
         }
     }
 
     private void Merge()
     {
+        lock (_mutex)
+        {
+            if (_isMerging)
+            {
+                Output += "Already merging files...\n";
+                return;
+            }
+
+            _isMerging = true;
+        }
+
         Output += "Merging files...\n";
         var fileViewModel = _containerProvider.Resolve<FilesViewModel>();
         var helper = new PdfHelper(fileViewModel.Output.Path, fileViewModel.Files.Select(file => file.Path));
@@ -88,6 +102,13 @@ class MainViewModel : BindableBase
         catch (Exception e)
         {
             Output += $"An error occurred: {e.Message}\n";
+        }
+        finally
+        {
+            lock (_mutex)
+            {
+                _isMerging = false;
+            }
         }
     }
 
