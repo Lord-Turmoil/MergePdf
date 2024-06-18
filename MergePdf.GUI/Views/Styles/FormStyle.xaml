@@ -38,6 +38,15 @@
         <Setter Property="MaxLength" Value="66"></Setter>
     </Style>
 
+    <Style x:Key="NumberInput" TargetType="TextBox">
+        <Setter Property="FontFamily" Value="Microsoft YaHeiUI" />
+        <Setter Property="FontSize" Value="20" />
+        <Setter Property="VerticalContentAlignment" Value="Center"></Setter>
+        <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
+        <Setter Property="MaxLines" Value="1"></Setter>
+        <Setter Property="MaxLength" Value="3"></Setter>
+    </Style>
+    
     <Style x:Key="BigCheckBox" TargetType="CheckBox">
         <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
         <Setter Property="VerticalContentAlignment" Value="Center"></Setter>

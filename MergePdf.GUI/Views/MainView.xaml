@@ -57,7 +57,7 @@
                     </StackPanel>
                 </Grid>
                 <ScrollViewer Grid.Row="1" ext:AutoScrollBehavior.AutoScroll="True">
-                    <TextBlock Text="{Binding Output}" Margin="5,0,0,0" />
+                    <TextBlock Text="{Binding Output}" Margin="5,0,0,0" TextWrapping="Wrap" />
                 </ScrollViewer>
             </Grid>
         </Grid>

@@ -87,9 +87,12 @@ class MainViewModel : BindableBase
         var pageNumberViewModel = _containerProvider.Resolve<PageNumberViewModel>();
         if (pageNumberViewModel.AddPageNumber)
         {
-            var options = new PageNumberOptions();
-            options.Location = pageNumberViewModel.SelectedLocation;
-            options.Format = pageNumberViewModel.Format;
+            var options = new PageNumberOptions {
+                Location = pageNumberViewModel.SelectedLocation,
+                FontFamily = pageNumberViewModel.FontFamilyName,
+                FontSize = pageNumberViewModel.FontSize,
+                Format = pageNumberViewModel.Format
+            };
             helper.AddPageNumber(options);
         }
 

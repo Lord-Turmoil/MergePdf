@@ -1,4 +1,5 @@
 ﻿using System.Collections.ObjectModel;
+using System.Windows.Media;
 using MergePdf.GUI.Models;
 using Prism.Commands;
 using Prism.Mvvm;
@@ -11,6 +12,8 @@ class PageNumberViewModel : BindableBase
     private int _selectedLocationIndex = 4;
     private bool _addPageNumber;
     private string _format = "$current / $total";
+    private string _fontSizeText = "8";
+    private FontFamily _fontFamily = Fonts.SystemFontFamilies.First();
 
     public PageNumberViewModel()
     {
@@ -46,6 +49,23 @@ class PageNumberViewModel : BindableBase
         get => _format;
     }
 
+    public string FontSizeText {
+        set {
+            if (string.IsNullOrEmpty(value))
+            {
+                value = "8";
+            }
+
+            if (int.TryParse(value, out int fontSize))
+            {
+                SetProperty(ref _fontSizeText, value);
+                FontSize = fontSize;
+            }
+        }
+
+        get => _fontSizeText;
+    }
+
     public DelegateCommand ResetFormatCommand { get; }
 
     public string SelectedLocation {
@@ -55,6 +75,15 @@ class PageNumberViewModel : BindableBase
             return words[0][..1].ToLower() + words[1][..1].ToLower();
         }
     }
+
+    public FontFamily FontFamily {
+        set => SetProperty(ref _fontFamily, value);
+        get => _fontFamily;
+    }
+
+    public string FontFamilyName => _fontFamily.Source;
+
+    public int FontSize { get; set; }
 
 
     private void ResetFormat()

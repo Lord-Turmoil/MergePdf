@@ -11,6 +11,8 @@
             <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
             <Grid.ColumnDefinitions>
@@ -47,6 +49,22 @@
             </Label>
             <TextBox Grid.Column="1" Width="200" FontSize="18" Style="{StaticResource TextInput}" Text="{Binding Format}"/>
             <Button Grid.Column="2" Command="{Binding ResetFormatCommand}" Content="Reset" Width="50" Margin="5,0,0,0"></Button>
+        </Grid>
+        <Grid Grid.Row="3" Margin="0,5,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="220"></ColumnDefinition>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Label Content="Font family" Style="{StaticResource OptionLabel}"></Label>
+            <ComboBox Grid.Column="1" MinWidth="200" FontSize="18" SelectedItem="{Binding FontFamily}" ItemsSource="{Binding Source={x:Static Fonts.SystemFontFamilies}}"/>
+        </Grid>
+        <Grid Grid.Row="4" Margin="0,5,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="220"></ColumnDefinition>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Label Content="Font size" Style="{StaticResource OptionLabel}"></Label>
+            <TextBox Grid.Column="1" Width="200" Text="{Binding FontSizeText}" Style="{StaticResource NumberInput}"></TextBox>
         </Grid>
     </Grid>
 </UserControl>
