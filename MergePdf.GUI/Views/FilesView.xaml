@@ -19,7 +19,7 @@
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="Auto" />
             </Grid.ColumnDefinitions>
-            <Label Content="Output:" Style="{StaticResource OptionLabel}" />
+            <Label Content="Output file:" Style="{StaticResource OptionLabel}" VerticalAlignment="Center" HorizontalAlignment="Left" Width="120" />
             <TextBlock Grid.Column="1" Text="{Binding Output.Filename}" Style="{StaticResource FilenameText}">
                 <TextBlock.ToolTip>
                     <TextBlock Text="{Binding Output.Path}" />
@@ -27,8 +27,8 @@
             </TextBlock>
             <StackPanel Grid.Column="2" Orientation="Horizontal">
 
-            <Button Content="Select File" Command="{Binding SelectOutputFileCommand}" />
-            <Button Content="Clear File" Command="{Binding ClearOutputFileCommand}" />
+                <Button Content="Select file" Command="{Binding SelectOutputFileCommand}" Width="80" Margin="0,0,5,0" Height="30" />
+                <Button Content="Clear file" Command="{Binding ClearOutputFileCommand}" Width="80" Margin="0,0,4,0" Height="30" />
             </StackPanel>
         </Grid>
         <Grid Grid.Row="1">
@@ -36,10 +36,10 @@
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="Auto" />
             </Grid.ColumnDefinitions>
-            <Label Content="Input files:" Style="{StaticResource OptionLabel}" Grid.ColumnSpan="2" />
+            <Label Content="Input files:" Style="{StaticResource OptionLabel}" Width="120" HorizontalAlignment="Left" VerticalAlignment="Top" />
             <StackPanel Grid.Column="1" Orientation="Horizontal">
-                <Button Content="Add file(s)" Command="{Binding SelectInputFilesCommand}" />
-                <Button Content="Clear files" Command="{Binding ClearInputFilesCommand}" />
+                <Button Content="Add file(s)" Command="{Binding SelectInputFilesCommand}" Width="80" Margin="0,0,4,0" Height="30" />
+                <Button Content="Clear files" Command="{Binding ClearInputFilesCommand}" Width="80" Margin="0,0,5,0" Height="30" />
             </StackPanel>
         </Grid>
         <ScrollViewer Grid.Row="2" ext:AutoScrollBehavior.AutoScroll="True">

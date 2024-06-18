@@ -40,27 +40,25 @@
                             prism:RegionManager.RegionName="{x:Static ext:PrismManager.MainViewRegionName}" />
             <GridSplitter Grid.Row="1" Height="5" HorizontalAlignment="Stretch" />
             <Grid Grid.Row="2">
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto" />
-                        <RowDefinition Height="*" />
-                    </Grid.RowDefinitions>
-                    <Grid Grid.Row="0">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="Auto" />
-                        </Grid.ColumnDefinitions>
-                        <Label Content="Logs" Style="{StaticResource SectionLabel}" Margin="5,0,0,0" Height="35" />
-                        <StackPanel Grid.Column="1" Orientation="Horizontal">
-                            <Button Content="Merge PDF Files" Command="{Binding MergeCommand}" Width="120" />
-                            <Button Content="Clear Logs" Command="{Binding ClearCommand}" Margin="0,0,5,0"
-                                    HorizontalAlignment="Center" Width="80" />
-                        </StackPanel>
-                    </Grid>
-                    <ScrollViewer Grid.Row="1" ext:AutoScrollBehavior.AutoScroll="True">
-                        <TextBlock Text="{Binding Output}" Margin="5,0,0,0" />
-                    </ScrollViewer>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <Label Content="Logs" Style="{StaticResource SectionLabel}" Margin="5,0,0,0" Height="35" />
+                    <StackPanel Grid.Column="1" Orientation="Horizontal">
+                        <Button Content="Merge PDF Files" Command="{Binding MergeCommand}" Width="120" Height="30" Margin="0,0,5,0" />
+                        <Button Content="Clear Logs" Command="{Binding ClearCommand}" Margin="0,0,5,0"
+                                    HorizontalAlignment="Center" Width="80" Height="30" />
+                    </StackPanel>
                 </Grid>
+                <ScrollViewer Grid.Row="1" ext:AutoScrollBehavior.AutoScroll="True">
+                    <TextBlock Text="{Binding Output}" Margin="5,0,0,0" />
+                </ScrollViewer>
             </Grid>
         </Grid>
     </Grid>
