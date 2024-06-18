@@ -84,6 +84,15 @@ class MainViewModel : BindableBase
         Output += "Merging files...\n";
         var fileViewModel = _containerProvider.Resolve<FilesViewModel>();
         var helper = new PdfHelper(fileViewModel.Output.Path, fileViewModel.Files.Select(file => file.Path));
+        var pageNumberViewModel = _containerProvider.Resolve<PageNumberViewModel>();
+        if (pageNumberViewModel.AddPageNumber)
+        {
+            var options = new PageNumberOptions();
+            options.Location = pageNumberViewModel.SelectedLocation;
+            options.Format = pageNumberViewModel.Format;
+            helper.AddPageNumber(options);
+        }
+
         helper.SetCallback(new MergeProgress(this));
         MergeImpl(helper);
     }

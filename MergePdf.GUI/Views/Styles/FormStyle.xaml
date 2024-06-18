@@ -29,14 +29,13 @@
         <Setter Property="Padding" Value="2" />
     </Style>
 
-    <Style x:Key="NumberInput" TargetType="TextBox">
+    <Style x:Key="TextInput" TargetType="TextBox">
         <Setter Property="FontFamily" Value="Microsoft YaHeiUI" />
         <Setter Property="FontSize" Value="20" />
         <Setter Property="VerticalContentAlignment" Value="Center"></Setter>
-        <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
+        <Setter Property="HorizontalContentAlignment" Value="Left"></Setter>
         <Setter Property="MaxLines" Value="1"></Setter>
-        <Setter Property="MaxLength" Value="10"></Setter>
-        <Setter Property="AutomationProperties.HelpText" Value="输入数字"></Setter>
+        <Setter Property="MaxLength" Value="66"></Setter>
     </Style>
 
     <Style x:Key="BigCheckBox" TargetType="CheckBox">

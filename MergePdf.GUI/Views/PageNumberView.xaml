@@ -1,0 +1,52 @@
+﻿<UserControl x:Class="MergePdf.GUI.Views.PageNumberView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MergePdf.GUI.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="220"></ColumnDefinition>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Label Content="Add page number" Style="{StaticResource OptionLabel}"></Label>
+            <CheckBox Grid.Column="1" IsChecked="{Binding AddPageNumber}" Style="{StaticResource BigCheckBox}" />
+        </Grid>
+        <Grid Grid.Row="1" Margin="0,5,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="220"></ColumnDefinition>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Label Content="Page number location" Style="{StaticResource OptionLabel}"></Label>
+            <ComboBox Grid.Column="1" Width="200" FontSize="18" SelectedIndex="{Binding SelectedLocationIndex}" ItemsSource="{Binding Locations}">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Style="{StaticResource OptionText}" Text="{Binding Option}" />
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+        </Grid>
+        <Grid Grid.Row="2" Margin="0,5,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="220"></ColumnDefinition>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Label Content="Page number format" Style="{StaticResource OptionLabel}" Margin="0,0,5,0">
+                <Label.ToolTip>
+                    <TextBlock Text="Use $current for the current page number and $total for all pages"></TextBlock>
+                </Label.ToolTip>
+            </Label>
+            <TextBox Grid.Column="1" Width="200" FontSize="18" Style="{StaticResource TextInput}" Text="{Binding Format}"/>
+            <Button Grid.Column="2" Command="{Binding ResetFormatCommand}" Content="Reset" Width="50" Margin="5,0,0,0"></Button>
+        </Grid>
+    </Grid>
+</UserControl>

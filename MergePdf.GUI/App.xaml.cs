@@ -15,8 +15,10 @@ public partial class App : PrismApplication
     {
         containerRegistry.RegisterSingleton<MainViewModel>();
         containerRegistry.RegisterSingleton<FilesViewModel>();
+        containerRegistry.RegisterSingleton<PageNumberViewModel>();
         containerRegistry.RegisterForNavigation<MainView, MainViewModel>();
         containerRegistry.RegisterForNavigation<FilesView, FilesViewModel>();
+        containerRegistry.RegisterForNavigation<PageNumberView, PageNumberViewModel>();
     }
 
     protected override Window CreateShell()
