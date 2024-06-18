@@ -31,6 +31,16 @@ public class PageNumberOptions
             throw new PdfMergeException("Font size must be greater than 0");
         }
 
+        if (Location.Equals("tc", StringComparison.OrdinalIgnoreCase))
+        {
+            Location = TopMiddle;
+        }
+
+        if (Location.Equals("bc", StringComparison.OrdinalIgnoreCase))
+        {
+            Location = BottomMiddle;
+        }
+
         if (Location != TopLeft && Location != TopMiddle && Location != TopRight &&
             Location != BottomLeft && Location != BottomMiddle && Location != BottomRight)
         {

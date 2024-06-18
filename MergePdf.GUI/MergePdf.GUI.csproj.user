@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup />
+  <ItemGroup>
+    <ApplicationDefinition Update="App.xaml">
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Views\FilesView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\PageNumberView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Views\FilesView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\MainView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\PageNumberView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Styles\BaseStyle.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Styles\FormStyle.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Styles\IndexStyle.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Styles\MenuTabStyle.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Styles\FileListStyle.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Templates\MenuTabTemplate.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Templates\FileListTemplate.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+</Project>

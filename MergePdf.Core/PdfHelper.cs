@@ -33,6 +33,11 @@ public class PdfHelper
 
     public void Merge()
     {
+        if (string.IsNullOrEmpty(_output))
+        {
+            throw new PdfMergeException("Output file not specified");
+        }
+
         if (!_inputs.Any())
         {
             throw new PdfMergeException("No input files specified");
@@ -73,7 +78,6 @@ public class PdfHelper
                     }
                 }
             }
-
         }
 
         document.Save(_output);
