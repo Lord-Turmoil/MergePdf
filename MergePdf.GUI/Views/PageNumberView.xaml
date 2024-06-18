@@ -56,7 +56,13 @@
                 <ColumnDefinition Width="Auto"></ColumnDefinition>
             </Grid.ColumnDefinitions>
             <Label Content="Font family" Style="{StaticResource OptionLabel}"></Label>
-            <ComboBox Grid.Column="1" MinWidth="200" FontSize="18" SelectedItem="{Binding FontFamily}" ItemsSource="{Binding Source={x:Static Fonts.SystemFontFamilies}}"/>
+            <ComboBox Grid.Column="1" MinWidth="200" FontSize="18" SelectedIndex="{Binding SelectedFontFamilyIndex}" ItemsSource="{Binding FontFamilies}" VerticalAlignment="Stretch">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Style="{StaticResource OptionText}" Text="{Binding Option}" FontFamily="{Binding Option}" />
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
         </Grid>
         <Grid Grid.Row="4" Margin="0,5,0,0">
             <Grid.ColumnDefinitions>

@@ -89,7 +89,7 @@ class MainViewModel : BindableBase
         {
             var options = new PageNumberOptions {
                 Location = pageNumberViewModel.SelectedLocation,
-                FontFamily = pageNumberViewModel.FontFamilyName,
+                FontFamily = pageNumberViewModel.SelectedFontFamily,
                 FontSize = pageNumberViewModel.FontSize,
                 Format = pageNumberViewModel.Format
             };

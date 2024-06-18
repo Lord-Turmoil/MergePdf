@@ -10,33 +10,59 @@ class PageNumberViewModel : BindableBase
 {
     private ObservableCollection<OptionItem> _locations;
     private int _selectedLocationIndex = 4;
+    private ObservableCollection<OptionItem> _fontFamilies;
+    private int _selectedFontFamilyIndex = 0;
+
     private bool _addPageNumber;
     private string _format = "$current / $total";
     private string _fontSizeText = "8";
-    private FontFamily _fontFamily = Fonts.SystemFontFamilies.First();
+    private int _fontSize = 8;
 
     public PageNumberViewModel()
     {
-        _locations = [
-            new OptionItem(0, "Top Left"),
-            new OptionItem(1, "Top Center"),
-            new OptionItem(2, "Top Right"),
-            new OptionItem(3, "Bottom Left"),
-            new OptionItem(4, "Bottom Center"),
-            new OptionItem(5, "Bottom Right")
-        ];
-
+        _locations = new ObservableCollection<OptionItem>();
+        AddLocations();
+        _fontFamilies = new ObservableCollection<OptionItem>();
+        AddFontFamilies();
         ResetFormatCommand = new DelegateCommand(ResetFormat);
+    }
+
+    private void AddLocations()
+    {
+        Locations.Add(new OptionItem(0, "Top Left"));
+        Locations.Add(new OptionItem(1, "Top Center"));
+        Locations.Add(new OptionItem(2, "Top Right"));
+        Locations.Add(new OptionItem(3, "Bottom Left"));
+        Locations.Add(new OptionItem(4, "Bottom Center"));
+        Locations.Add(new OptionItem(5, "Bottom Right"));
+    }
+    private void AddFontFamilies()
+    {
+        FontFamilies.Add(new OptionItem(0, "Arial"));
+        FontFamilies.Add(new OptionItem(1, "Times New Roman"));
+        FontFamilies.Add(new OptionItem(2, "Courier New"));
+        FontFamilies.Add(new OptionItem(3, "Verdana"));
+        FontFamilies.Add(new OptionItem(4, "Lucida Console"));
+        FontFamilies.Add(new OptionItem(5, "Symbol"));
     }
 
     public ObservableCollection<OptionItem> Locations {
         set => SetProperty(ref _locations, value);
         get => _locations;
     }
-
     public int SelectedLocationIndex {
         set => SetProperty(ref _selectedLocationIndex, value);
         get => _selectedLocationIndex;
+    }
+
+    public ObservableCollection<OptionItem> FontFamilies {
+        set => SetProperty(ref _fontFamilies, value);
+        get => _fontFamilies;
+    }
+
+    public int SelectedFontFamilyIndex {
+        set => SetProperty(ref _selectedFontFamilyIndex, value);
+        get => _selectedFontFamilyIndex;
     }
 
     public bool AddPageNumber {
@@ -59,7 +85,7 @@ class PageNumberViewModel : BindableBase
             if (int.TryParse(value, out int fontSize))
             {
                 SetProperty(ref _fontSizeText, value);
-                FontSize = fontSize;
+                _fontSize = fontSize;
             }
         }
 
@@ -76,15 +102,9 @@ class PageNumberViewModel : BindableBase
         }
     }
 
-    public FontFamily FontFamily {
-        set => SetProperty(ref _fontFamily, value);
-        get => _fontFamily;
-    }
+    public string SelectedFontFamily => _fontFamilies[_selectedFontFamilyIndex].Option;
 
-    public string FontFamilyName => _fontFamily.Source;
-
-    public int FontSize { get; set; }
-
+    public int FontSize => _fontSize;
 
     private void ResetFormat()
     {
