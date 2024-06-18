@@ -1,4 +1,5 @@
 ﻿using System.Collections.ObjectModel;
+using System.Diagnostics;
 using MergePdf.Core;
 using MergePdf.GUI.Extensions;
 using MergePdf.GUI.Models;
@@ -13,11 +14,13 @@ class MainViewModel : BindableBase
 {
     private readonly IContainerProvider _containerProvider;
     private readonly IRegionManager _regionManager;
-    private ObservableCollection<MenuTab> _menuTabs;
-    private string _output;
 
     private readonly object _mutex = new();
+    private ObservableCollection<MenuTab> _menuTabs;
+    private string _output;
     private bool _isMerging;
+
+    private bool _openOnComplete;
 
     public MainViewModel(IContainerProvider containerProvider, IRegionManager regionManager)
     {
@@ -40,6 +43,11 @@ class MainViewModel : BindableBase
     public string Output {
         set => SetProperty(ref _output, value);
         get => _output;
+    }
+
+    public bool OpenOnComplete {
+        set => SetProperty(ref _openOnComplete, value);
+        get => _openOnComplete;
     }
 
     public DelegateCommand<MenuTab> NavigateCommand { get; }
@@ -106,6 +114,12 @@ class MainViewModel : BindableBase
         {
             await Task.Run(helper.Merge);
             Output += "Merge complete!\n";
+            if (OpenOnComplete)
+            {
+                var path = _containerProvider.Resolve<FilesViewModel>().Output.Path;
+                Process.Start("explorer.exe", $"/select,\"{path}\"");
+                Output += $"Revealing {path} in explorer";
+            }
         }
         catch (PdfMergeException e)
         {
