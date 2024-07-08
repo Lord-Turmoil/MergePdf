@@ -6,7 +6,12 @@
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
         <UseWPF>true</UseWPF>
+        <ApplicationIcon>icon.ico</ApplicationIcon>
     </PropertyGroup>
+
+    <ItemGroup>
+      <Content Include="icon.ico" />
+    </ItemGroup>
 
     <ItemGroup>
         <PackageReference Include="gong-wpf-dragdrop" Version="3.2.1" />
