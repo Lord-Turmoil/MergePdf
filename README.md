@@ -8,6 +8,10 @@ This is a simple program to merge PDF files. It simply merges all files with no 
 
 ## How to use it?
 
+**Now it have a GUI interface! (Only on Windows)**
+
+### CLI Usage
+
 Quite simple, you can specify files to merge, or merge all files under a directory.
 
 ```
@@ -38,7 +42,7 @@ Copyright (C) 2024 MergePdf.CLI
 
 The location of the page number stands for "top left", "top middle", etc.
 
-For the `format` option, you may need to use `'` to quote it on Windows. For example, `'$current / $$total'` may be rendered as `2 / 5`.
+For the `format` option, you may need to use `'` to quote it on Windows. It support two variables: `$total` for total pages, and `$current` for the current page. For example, `'$current / $total'` may be rendered as `2 / 5`.
 
 Note that it will automatically add `.pdf` extension to the output filename.
 
@@ -63,4 +67,4 @@ Just open the project in Visual Studio, and hit Build. I added some publish opti
 ## TODO
 
 - [x] Command line client.
-- [ ] GUI client using WPF.
+- [x] GUI client using WPF.
